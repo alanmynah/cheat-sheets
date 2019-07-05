@@ -53,6 +53,10 @@ docker exec -it <container-id> sh
 
 ## Docker images with `Dockerfile`
 
+### Docker image workflow
+
+`Dockerfile` -> Docker Client -> Docker Server -> Image
+
 Create `Dockerfile`
 
 ```Dockerfile
