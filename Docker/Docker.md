@@ -1,6 +1,7 @@
 # Docker Cheat Sheet
 
 Tip: if ctrl+c doesn't work, try ctrl+d or type `exit`
+For any shell commands not explained here, please refer to [explainshell](https://explainshell.com/)
 
 ## Docker containers CRUD
 
@@ -38,7 +39,7 @@ docker kill <container-id> #SIGKILL - you knows what happens.
 docker system prune
 ```
 
-## When docker is up
+## When docker container is up
 
 ```sh
 # Execute commands in running containers
@@ -66,4 +67,22 @@ FROM alpine
 RUN apk add --update redis
 # Use CMD to execute a command on start of a container built from this image
 CMD ["redis-cli"]
+```
+
+Build and run an image from `Dockerfile`
+
+```sh
+docker build . # Fullstop "." refers to the build context - current directory
+```
+
+Tag an image
+
+```sh
+# Remembering IDs is a pain. Tag images to use names to run containers.
+docker build -t alanmynah/redis:latest # technically, only ":latest" is a tag.
+#               dockerId/imgname:version
+# run your image
+docker run alanmynah/redis:latest
+# Equivalent to
+docker run alanmynah/redis # :latest tag is run by default, so can be omitted
 ```
