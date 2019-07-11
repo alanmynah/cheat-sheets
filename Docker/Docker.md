@@ -18,10 +18,15 @@ docker start -a <container-id>
 docker run <image-name> <command>
 docker run hello-world echo 'Hello World!'
 docker run hello-world ls # will print all the files inside container
+
 # Run with a shell access
 docker run -it <image-name> sh
 # -i, --interactive - keep STDIN open even if not attached
 # -t, --tty - Allocate a pseudo-TTY
+
+# Run and map host port to container port
+docker run -p 8080:5000
+# Left Host; Right Container
 
 # LIST
 docker ps # show running containers
@@ -67,6 +72,9 @@ FROM alpine
 # Use RUN to execute commands to prepare the image
 RUN apk add --update redis
 
+# Specifying working directory
+WORKDIR /usr/app
+
 # Use COPY to copy files/folders into container - COPY <source> <destination>
 COPY . .
 # from current folder in source to default in destination
@@ -90,6 +98,11 @@ Tag an image
 # Remembering IDs is a pain. Tag images to use names to run containers.
 docker build -t alanmynah/redis:latest # technically, only ":latest" is a tag.
 #               dockerId/imgname:version
+```
+
+Run an image
+
+```sh
 # run your image
 docker run alanmynah/redis:latest
 # Equivalent to
