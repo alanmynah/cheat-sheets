@@ -63,8 +63,17 @@ Create `Dockerfile`
 ```Dockerfile
 # Use FROM to choose a base image
 FROM alpine
+
 # Use RUN to execute commands to prepare the image
 RUN apk add --update redis
+
+# Use COPY to copy files/folders into container - COPY <source> <destination>
+COPY . .
+# from current folder in source to default in destination
+
+# Use EXPOSE to expose ports for incoming traffic
+EXPOSE 80
+
 # Use CMD to execute a command on start of a container built from this image
 CMD ["redis-cli"]
 ```
