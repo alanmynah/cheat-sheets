@@ -7,5 +7,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(8080, () => {
-  console.log('This example is waiting for you on localhost:8080');
+  console.log('Node-server-example is waiting for you on localhost:8080');
 });

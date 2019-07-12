@@ -75,9 +75,13 @@ RUN apk add --update redis
 # Specifying working directory
 WORKDIR /usr/app
 
-# Use COPY to copy files/folders into container - COPY <source> <destination>
+# Use COPY to copy files/folders into container
+# COPY <source> <destination>
 COPY . .
 # from current folder in source to default in destination
+# Copy miltiple files, destination in this case MUST end with / or \
+COPY ./package.json ./package-lock.json ./
+
 
 # Use EXPOSE to expose ports for incoming traffic
 EXPOSE 80
