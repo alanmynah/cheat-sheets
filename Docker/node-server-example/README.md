@@ -1,3 +1,5 @@
+Docker example of a super simple node app.
+
 Run this node server example with:
 
 ```sh
