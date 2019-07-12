@@ -47,12 +47,12 @@ docker system prune
 ## When docker container is up
 
 ```sh
-# Execute commands in running containers
+# Run commands in running containers
 docker exec -it <container-id> <command>
 # -i, --interactive - keep STDIN open even if not attached
 # -t, --tty - Allocate a pseudo-TTY
 
-# get terminal access in the container
+# Access terminal in a running container
 docker exec -it <container-id> sh
 # bash, zsh, powershell are also possible
 ```
