@@ -79,9 +79,9 @@ WORKDIR /usr/app
 # COPY <source> <destination>
 COPY . .
 # from current folder in source to default in destination
+
 # Copy miltiple files, destination in this case MUST end with / or \
 COPY ./package.json ./package-lock.json ./
-
 
 # Use EXPOSE to expose ports for incoming traffic
 EXPOSE 80
@@ -99,7 +99,7 @@ docker build . # Fullstop "." refers to the build context - current directory
 Tag an image
 
 ```sh
-# Remembering IDs is a pain. Tag images to use names to run containers.
+# Remembering IDs are a pain. Tag images to use names to run containers.
 docker build -t alanmynah/redis:latest # technically, only ":latest" is a tag.
 #               dockerId/imgname:version
 ```
@@ -111,4 +111,41 @@ Run an image
 docker run alanmynah/redis:latest
 # Equivalent to
 docker run alanmynah/redis # :latest tag is run by default, so can be omitted
+```
+
+## `docker-compose`
+
+When running `docker cli` commands gets tedious, `docker-compose` comes to the rescue.
+
+[Refer to node-redis-example](./node-redis-example)
+
+When writing `docker-compose.yml`, the best way to think about it is by asking yourself "What `docker cli` commands do I need to run for each container?".
+
+```sh
+touch docker-compose.yml # create docker-compose config file
+```
+
+Example of `docker-compose.yml` file:
+
+```yml
+version: '3' # Version of docker-compose to use
+
+# Services list all the containers that need to be run by docker-compose.yml
+services:
+  redis: # first service - kind of like container
+    image: 'redis' # based on this image
+  node-redis: # second service
+    build: . # based on docker file
+    ports:
+      - '5001:8081'
+```
+
+`docker-compose` CRUD
+
+```sh
+# Build containers and run them
+docker-compose up --build
+
+# Run already built containers
+docker-compose up
 ```
