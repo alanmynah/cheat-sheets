@@ -5,6 +5,8 @@ For any shell commands not explained here, please refer to [explainshell](https:
 
 ## Docker containers CRUD
 
+Feel free to use [`node-server-example`](./node-server-example) for reference
+
 ```sh
 # CREATE
 docker create hello-world
@@ -115,6 +117,8 @@ docker run alanmynah/redis # :latest tag is run by default, so can be omitted
 
 ## `docker-compose`
 
+Feel free to use [`node-redis-example`](./node-redis-example) for reference
+
 When running `docker cli` commands gets tedious, `docker-compose` comes to the rescue.
 
 [Refer to node-redis-example](./node-redis-example)
@@ -130,7 +134,7 @@ Example of `docker-compose.yml` file:
 ```yml
 version: '3' # Version of docker-compose to use
 
-# Services list all the containers that need to be run by docker-compose.yml
+# 'services' specify configuration for all the containers that need to be run
 services:
   redis: # first service - kind of like container
     image: 'redis' # based on this image
@@ -140,7 +144,7 @@ services:
       - '5001:8081'
 ```
 
-`docker-compose` CRUD
+`docker-compose` up and down and status
 
 ```sh
 # Build containers and run them
@@ -148,4 +152,46 @@ docker-compose up --build
 
 # Run already built containers
 docker-compose up
+
+# Run containers without attaching to them
+# i.e. in 'detached' (sometimes refered to as 'daemon' (background) mode)
+docke-compose up -d
+
+# Stop containers
+docker-compose down
+
+# Get status
+docker-compose ps
+```
+
+## Restart policies
+
+Ways to improve failure resilience is to specify a restart policy.
+
+```yml
+services:
+...
+  node-redis:
+    ...
+    restart: unless-stopped
+    ...
+```
+
+```yml
+services:
+...
+  node-redis:
+    ...
+    # note that if you specify "no", it has to be in quotes
+    restart: "no"
+    ...
+```
+
+Possible options include:
+
+```txt
+no
+always
+on-failure
+unless-stopped
 ```
