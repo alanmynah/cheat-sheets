@@ -155,6 +155,8 @@ docker run -v /app/node_modules <image-id>
 docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <image-id>
 ```
 
+If all of this seems like a pain, yes, [there is a better way using `docker-compose`](https://github.com/alanmynah/cheat-sheets/blob/master/Docker/docker-cheat-sheet.md#volume-binding-with-docker-compose)
+
 # `docker-compose`
 
 Feel free to use [`node-redis-example`](./node-redis-example) for reference
