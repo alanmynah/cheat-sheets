@@ -10,7 +10,7 @@ Feel free to use [`node-server-example`](./node-server-example) for reference
 ```sh
 # CREATE
 docker create hello-world
-# get a guid that is the container's id
+# you will now receive a guid that is the container's id
 
 # START
 docker start -a <image-id> # -a, --attach
@@ -37,6 +37,17 @@ docker ps --all # show all containers
 
 # ACCESSING LOGS
 docker logs <container-id>
+
+# Copy logs to your local machine
+# Docker merges stdout and stderr for us, we can treat the log output like any other shell stream.
+docker logs <container-id/name> > myservice.log
+
+# Send logs and then any updates that follow
+docker logs -f <container-id/name> > myservice.log # -f = --follow
+
+# Send logs, any updates that follow AND view it all at the same time!
+docker logs -f <container-id/name> | tee myservice.log # https://explainshell.com/explain?cmd=tee
+# For why we use '|' instead of '>', see https://askubuntu.com/a/172989
 
 # STOP
 docker stop <container-id> #SIGTERM is issued, so it takes it's time to shut down.
