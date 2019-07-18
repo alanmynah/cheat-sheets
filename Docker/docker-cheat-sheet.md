@@ -178,12 +178,14 @@ version: '3' # Version of docker-compose to use
 
 # 'services' specify configuration for all the containers that need to be run
 services:
-  redis: # first service - kind of like container
-    image: 'redis' # based on this image
+  backend: # first service - kind of like container
+    image: 'my-backend-image' # based on this image
   node-redis: # second service
-    build: . # based on docker file
+    build:
+      context: . # current working directory
+      dockerfile: dev.Dockerfile # Optional, if uses default Dockerfile
     ports:
-      - '5001:8081'
+      - 5001:8081 # docker run -p 5001:8081
 ```
 
 `docker-compose` up and down and status
@@ -239,3 +241,14 @@ unless-stopped
 ```
 
 ## Volume binding with `docker-compose`
+
+If you wish to know about volume binding, please refer to [Docker volumes section](https://github.com/alanmynah/cheat-sheets/blob/master/Docker/docker-cheat-sheet.md#docker-volumes)
+
+```yml
+version: '3'
+services:
+  frontend:
+    volumes:
+      - /app/node_modules # docker run -v /app/node_modules
+      - .:/app # equal to docker run -v $(pwd):/app
+```
