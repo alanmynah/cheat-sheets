@@ -7,5 +7,5 @@ This example uses two containers:
 
 ```sh
 docker build -f dev.Dockerfile .
-docker start -a <container-id>
+docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <image-id>
 ```

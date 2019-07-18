@@ -13,11 +13,12 @@ docker create hello-world
 # get a guid that is the container's id
 
 # START
-docker start -a <container-id> # -a is --attach
+docker start -a <image-id> # -a, --attach
 
 # RUN
 # docker run = docker create + docker start
 docker run <image-name> <command>
+# imagine we have a hello-world image
 docker run hello-world echo 'Hello World!'
 docker run hello-world ls # will print all the files inside container
 
@@ -27,7 +28,7 @@ docker run -it <image-name> sh
 # -t, --tty - Allocate a pseudo-TTY
 
 # Run and map host port to container port
-docker run -p 8080:5000
+docker run -p 8080:5000 # -p, --publish
 # Left Host; Right Container
 
 # LIST
@@ -118,7 +119,32 @@ docker run alanmynah/redis:latest
 docker run alanmynah/redis # :latest tag is run by default, so can be omitted
 ```
 
-## `docker-compose`
+## Docker volumes
+
+Feel free to use [`fullstack-example`](./fullstack-example) for reference
+
+When running a container, you might want to have changes made on your machine to be reflected in a container. That's when `volumes` come to the rescue.
+
+Also remember that volume binding is bidirectional. Whatever changes in the docker container will also be changed on your local machine.
+
+```sh
+# Map a current working directory (pwd) to /app folder in a container
+docker run -v $(pwd):/app <image-id> # -v, --volume
+
+# Create a placeholder for future mapping
+# aka 'Bookmarking (or binding) volumes'
+docker run -v /app/node_modules <image-id>
+# Q: When can this be useful?
+# A: Whenever your code relies on something generated at build time.
+# For example, at git clone. You haven't ran 'npm i' yet to copy over node_modules
+# As if saying: "I know node_modules isn't there yet, but it will be, so map it"
+
+# Combine the two ways to bookmark volumes
+# The order is not important
+docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <image-id>
+```
+
+# `docker-compose`
 
 Feel free to use [`node-redis-example`](./node-redis-example) for reference
 
@@ -199,6 +225,4 @@ on-failure
 unless-stopped
 ```
 
-## Docker volumes
-
-Feel free to use [`fullstack-example`](./fullstack-example) for reference
+## Volume binding with `docker-compose`

@@ -1,4 +1,5 @@
 Docker example of a super simple node app.
+It's just a hello world app on '/' route.
 
 Run this node server example with:
 
