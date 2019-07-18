@@ -13,7 +13,7 @@ docker create hello-world
 # get a guid that is the container's id
 
 # START
-docker start -a <container-id>
+docker start -a <container-id> # -a is --attach
 
 # RUN
 # docker run = docker create + docker start
@@ -96,6 +96,9 @@ Build and run an image from `Dockerfile`
 
 ```sh
 docker build . # Fullstop "." refers to the build context - current directory
+
+# Run a specific Dockerfile
+docker build -f Dockerfile.dev . # <- don't forget the fullstop
 ```
 
 Tag an image
@@ -195,3 +198,7 @@ always
 on-failure
 unless-stopped
 ```
+
+## Docker volumes
+
+Feel free to use [`fullstack-example`](./fullstack-example) for reference
