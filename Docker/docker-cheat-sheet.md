@@ -132,7 +132,7 @@ docker run alanmynah/redis # :latest tag is run by default, so can be omitted
 
 ## Docker volumes
 
-Feel free to use [`fullstack-example`](./fullstack-example) for reference
+Feel free to use [`dev-container-example`](./dev-container-example) for reference
 
 When running a container, you might want to have changes made on your machine to be reflected in a container. That's when `volumes` come to the rescue.
 
