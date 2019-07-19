@@ -1,4 +1,4 @@
-# Docker Cheat Sheet
+# Docker and `docker-compose` cheat sheet
 
 Tip: if ctrl+c doesn't work, try ctrl+d or type `exit`
 For any shell commands not explained here, please refer to [explainshell](https://explainshell.com/)
