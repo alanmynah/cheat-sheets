@@ -28,7 +28,7 @@ docker run -it <image-name> sh
 # -t, --tty - Allocate a pseudo-TTY
 
 # Run and map host port to container port
-docker run -p 8080:5000 # -p, --publish
+docker run -p 8080:5000 <image-id> # -p, --publish
 # Left Host; Right Container
 
 # LIST
@@ -180,12 +180,14 @@ version: '3' # Version of docker-compose to use
 services:
   backend: # first service - kind of like container
     image: 'my-backend-image' # based on this image
+    container_name: crud_api # assign this name to the container
   node-redis: # second service
     build:
       context: . # current working directory
       dockerfile: dev.Dockerfile # Optional, if uses default Dockerfile
     ports:
-      - 5001:8081 # docker run -p 5001:8081
+      - 5001:8081 # docker run -p 5001:8081 <image-id>
+    command: ['redis-cli'] # docker exec <container-id> npm run test
 ```
 
 `docker-compose` up and down and status

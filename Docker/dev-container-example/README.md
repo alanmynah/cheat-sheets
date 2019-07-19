@@ -1,6 +1,6 @@
 This is a fullstack app example that uses docker in production.
 
-This example uses two containers:
+This example uses two containers and includes example of tests:
 
 - dev container `dev.Dockerfile` - it is not `.dev` for intellisense reasons.
 - prod container

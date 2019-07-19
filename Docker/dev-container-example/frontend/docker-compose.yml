@@ -1,11 +1,21 @@
 version: '3'
 services:
-  frontend:
+  web:
     build:
       context: .
       dockerfile: dev.Dockerfile
+    container_name: web
     ports:
       - 3000:3000
     volumes:
       - /app/node_modules
       - .:/app
+  tests:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    container_name: tests
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ['npm', 'run', 'test']
