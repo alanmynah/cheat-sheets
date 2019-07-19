@@ -2,7 +2,7 @@
 
 ## Examples
 
-[`dev-container-example`](./dev-container-example)
+[`dev-prod-container-example`](./dev-prod-container-example)
 
 ### A quick and easy way to run tests in a container
 
