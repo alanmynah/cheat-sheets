@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - cd Docker/dev-prod-container-example/frontend # go to build dir
+  - docker build -t frontend-tests -f dev.Dockerfile . # build test container
+
+script:
+  - docker run frontend-tests npm run test --
