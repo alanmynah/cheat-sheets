@@ -97,6 +97,9 @@ COPY . .
 # Copy miltiple files, destination in this case MUST end with / or \
 COPY ./package.json ./package-lock.json ./
 
+# Set an environment variable
+ENV CI=true # Consider using .env files instead
+
 # Use EXPOSE to expose ports for incoming traffic
 EXPOSE 80
 

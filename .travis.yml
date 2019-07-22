@@ -4,8 +4,8 @@ services:
 
 before_install:
   - cd Docker/dev-prod-container-example/frontend # go to build dir
-  - docker build -t frontend-tests -f dev.Dockerfile . # build test container
+  - docker build -t frontend-tests -f ci.Dockerfile . # build test container
 
 script:
   - CI=true
-  - docker run frontend-tests npm test
+  - docker run frontend-tests npm run test --watchAll=false
