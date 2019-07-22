@@ -130,7 +130,31 @@ docker run alanmynah/redis:latest
 docker run alanmynah/redis # :latest tag is run by default, so can be omitted
 ```
 
-### Multi-step `Dockerfile`
+### Multistep `Dockerfile`
+
+```Dockerfile
+# as <name-of-step> is a way to split Dockerfile config.
+FROM node:alpine as build
+WORKDIR /app
+COPY ./package.json ./package-lock.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+FROM nginx
+# --from=<name-of-step> to reuse results of a previously specified step
+COPY --from=build /app/build /usr/share/nginx/html
+# nginx image includes start commands, so we can skip it
+```
+
+To run `Dockerfile` above, use the below commands:
+
+```sh
+docker build .
+# Get <image-id>
+# Default nginx port is 80
+docker run -p 8080:80 <image-id>
+```
 
 ## Docker volumes
 

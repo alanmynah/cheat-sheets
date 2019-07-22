@@ -1,11 +1,18 @@
-This is a fullstack app example that uses docker in production.
-
-This example uses two containers and includes example of tests:
+This is an example React app for the following scenarios:
 
 - dev container `dev.Dockerfile` - it is not `.dev` for intellisense reasons.
-- prod container
+- prod container `Dockerfile` that uses multistep build to serve the app with nginx
+
+Dev docker
 
 ```sh
-docker build -f dev.Dockerfile .
-docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <image-id>
+docker-compose run --build
+```
+
+Prod docker
+
+```sh
+docker build . # Сopy <image-id>
+# Default nginx port is 80
+docker run -p 8080:80 <image-id>
 ```
