@@ -7,4 +7,5 @@ before_install:
   - docker build -t frontend-tests -f dev.Dockerfile . # build test container
 
 script:
-  - docker run frontend-tests npm run test --
+  - CI=true
+  - docker run frontend-tests npm test
