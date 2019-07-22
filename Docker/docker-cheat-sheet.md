@@ -130,6 +130,8 @@ docker run alanmynah/redis:latest
 docker run alanmynah/redis # :latest tag is run by default, so can be omitted
 ```
 
+### Multi-step `Dockerfile`
+
 ## Docker volumes
 
 Feel free to use [`dev-prod-container-example`](./dev-prod-container-example) for reference
