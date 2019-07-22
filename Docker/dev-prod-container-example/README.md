@@ -1,7 +1,11 @@
-This is an example React app for the following scenarios:
+This is an example to show how to work with:
 
-- dev container `dev.Dockerfile` - it is not `.dev` for intellisense reasons.
-- prod container `Dockerfile` that uses multistep build to serve the app with nginx
+- Multiple containers:
+  - dev container `dev.Dockerfile` - it is not `.dev` for intellisense reasons.
+  - ci container - it's the same as `dev.Dockerfile`, but has CI=true env variable set.
+  - prod container `Dockerfile` that uses multistep build to serve the app with nginx
+- TravisCI, [the config is here)(../../.travis.yml)
+- Elastic beanstalk
 
 Dev docker
 
