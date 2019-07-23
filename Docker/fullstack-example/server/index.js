@@ -16,4 +16,9 @@ const pgClient = new Pool({
   password: envVariables.pgPassword,
   port: envVariables.pgPort
 });
+
 pgClient.on('error', () => console.log('Lost Postgres connection...'));
+
+pgClient
+  .query('CREATE TABLE IF NOT EXISTS values (number INT)')
+  .catch(error => console.log('Could not create table...', error));
