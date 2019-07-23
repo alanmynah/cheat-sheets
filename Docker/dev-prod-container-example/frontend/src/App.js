@@ -15,7 +15,7 @@ function App() {
             target='_blank'
             rel='noopener noreferrer'
           >
-            fullstack-example.
+            dev-prod-container-example.
           </a>
         </p>
         <p>
