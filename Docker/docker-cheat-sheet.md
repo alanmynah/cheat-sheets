@@ -257,7 +257,7 @@ Via `docker-compose`
 ```yml
 version: '3'
 services:
-  my_server_service:
+  my_api_service:
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
