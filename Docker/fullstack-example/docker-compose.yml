@@ -1,5 +1,11 @@
 version: '3'
 services:
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+    ports:
+      - '4000:80'
   postgres:
     image: 'postgres:latest'
   redis:
@@ -7,7 +13,7 @@ services:
   api:
     build:
       dockerfile: dev.Dockerfile
-      context: ./server
+      context: ./api
     volumes:
       - /app/node_modules # bookmark the folder
       - ./server:/app # map host's server folder to container's app
