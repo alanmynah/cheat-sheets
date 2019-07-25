@@ -96,6 +96,8 @@ COPY . .
 
 # Copy miltiple files, destination in this case MUST end with / or \
 COPY ./package.json ./package-lock.json ./
+# Wildcard is available too
+COPY ./package*.json ./
 
 # Set an environment variable
 ENV CI=true # Consider using .env files instead
@@ -139,7 +141,7 @@ docker run alanmynah/redis # :latest tag is run by default, so can be omitted
 # as <name-of-step> is a way to split Dockerfile config.
 FROM node:alpine as build
 WORKDIR /app
-COPY ./package.json ./package-lock.json ./
+COPY ./package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
