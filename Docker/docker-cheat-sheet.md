@@ -241,6 +241,28 @@ docker-compose down
 docker-compose ps
 ```
 
+## Environment variables
+
+You have several options.
+
+Via Dockerfile
+
+```Dockerfile
+ENV REDIS_HOST=redis
+ENV REDIS_PORT=6379
+```
+
+Via `docker-compose`
+
+```yml
+version: '3'
+services:
+  my_server_service:
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+```
+
 ## Restart policies
 
 Ways to improve failure resilience is to specify a restart policy.

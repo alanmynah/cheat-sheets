@@ -1,0 +1,35 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:latest'
+  redis:
+    image: 'redis:latest'
+  server:
+    build:
+      dockerfile: dev.Dockerfile
+      context: ./server
+    volumes:
+      - /app/node_modules # bookmark the folder
+      - ./server:/app # map host's server folder to container's app
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=postgres
+      - PGPASSWORD=postgres_password
+      - PGPORT=5432
+  client:
+    build:
+      dockerfile: dev.Dockerfile
+      context: ./client
+    volumes:
+      - /app/node_modules # bookmark the folder
+      - ./client:/app # map host's server folder to container's app
+  worker:
+    build:
+      dockerfile: dev.Dockerfile
+      context: ./worker
+    volumes:
+      - /app/node_modules # bookmark the folder
+      - ./worker:/app # map host's server folder to container's app
