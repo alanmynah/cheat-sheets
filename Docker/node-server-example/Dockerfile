@@ -7,7 +7,7 @@ COPY . .
 
 # Copying .json separately allows us to avoid
 # rerunning npm install if any of our code changes
-COPY ./package.json ./package-lock.json ./
+COPY ./package*.json ./
 RUN npm install
 
 COPY . .
