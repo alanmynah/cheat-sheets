@@ -1,5 +1,7 @@
 This is a fullstack example of a fibonacci calculator as found in [this lecture](https://www.udemy.com/docker-and-kubernetes-the-complete-guide/learn/lecture/11437198#overview)
 
+Summary: it's an over the top fibonacci app. It's doesn't do much more than that.
+
 ![image](https://user-images.githubusercontent.com/26703675/61688721-a2e3b680-ad1d-11e9-8bcf-1846a32edb39.png)
 
 ![image](https://user-images.githubusercontent.com/26703675/61732677-08639180-ad76-11e9-9826-5108f7346ede.png)
