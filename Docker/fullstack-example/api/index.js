@@ -49,7 +49,7 @@ app.get('/values/current', (req, res) => {
   });
 });
 
-app.post('values', (req, res) => {
+app.post('/values', (req, res) => {
   const index = req.body.index;
   if (parseInt(index) > 40) {
     return res.status(422).send('Index is too high');

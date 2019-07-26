@@ -16,7 +16,9 @@ services:
       context: ./api
     volumes:
       - /app/node_modules # bookmark the folder
-      - ./server:/app # map host's server folder to container's app
+      - ./api:/app # map host's server folder to container's app
+    depends_on:
+      - postgres
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -39,3 +41,6 @@ services:
     volumes:
       - /app/node_modules # bookmark the folder
       - ./worker:/app # map host's server folder to container's app
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
