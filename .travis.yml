@@ -3,13 +3,19 @@ services:
   - docker
 
 before_install:
+  # ~
   - cd Docker/fullstack-example/client # go to build dir
+  # Docker/fullstack-example/client
   - docker build -t client-tests -f ./dev.Dockerfile . # build test container
 
 script:
+  # Docker/fullstack-example/client
   - docker run -e CI=true client-tests npm run test
 
 after_success:
+  # Docker/fullstack-example/client
+  - cd ..
+  # Docker/fullstack-example
   # Log in to Docker
   # https://docs.travis-ci.com/user/docker/#pushing-a-docker-image-to-a-registry
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
