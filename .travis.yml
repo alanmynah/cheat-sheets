@@ -1,0 +1,24 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - cd Docker/fullstack-example # go to build dir
+  - docker build -t client-tests -e CI=true -f ./client/dev.Dockerfile . # build test container
+
+script:
+  - docker run client-tests npm run test
+
+after_success:
+  - docker build -t docker-cheat-sheets/fullstack-api ./api
+  - docker build -t docker-cheat-sheets/fullstack-client ./client
+  - docker build -t docker-cheat-sheets/fullstack-nginx ./nginx
+  - docker build -t docker-cheat-sheets/fullstack-worker ./worker
+
+  # Log in to Docker
+  # https://docs.travis-ci.com/user/docker/#pushing-a-docker-image-to-a-registry
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push docker-cheat-sheets/fullstack-api
+  - docker push docker-cheat-sheets/fullstack-client
+  - docker push docker-cheat-sheets/fullstack-nginx
+  - docker push docker-cheat-sheets/fullstack-worker
