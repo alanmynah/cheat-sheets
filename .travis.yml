@@ -14,7 +14,7 @@ script:
 
 after_success:
   # Docker/fullstack-example/client
-  - ls
+  - cd ..
   # Docker/fullstack-example
   # Log in to Docker
   # https://docs.travis-ci.com/user/docker/#pushing-a-docker-image-to-a-registry
