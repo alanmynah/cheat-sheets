@@ -10,7 +10,7 @@ script:
   - docker run -e CI=true client-tests npm run test
 
 after_success:
-  - docker login -u $DOCKER_ID -p $DOCKER_PASSWORD
+  - docker login -u $DOCKER_ID p $DOCKER_PASSWORD --password-stdin
 
   - docker build -t api ./api
   - docker build -t client ./client
