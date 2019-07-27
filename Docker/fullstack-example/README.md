@@ -10,3 +10,8 @@ Summary: it's an over the top fibonacci app. It's doesn't do much more than that
 
 Please feel free to refer to this course for more details.
 https://www.udemy.com/docker-and-kubernetes-the-complete-guide/
+
+A few notes:
+
+- After you submit new values, the page needs to be refreshed to show submitted data in other fields. Atm, it's as is in the tutorial, but at some point i'd like to fix that.
+- Hooks component placeholder is meant to be an illustration of how the class component can be rewritten using hooks.
