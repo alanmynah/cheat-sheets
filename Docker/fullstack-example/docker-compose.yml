@@ -3,6 +3,7 @@ services:
   nginx:
     restart: always
     build:
+      dockerfile: dev.Dockerfile
       context: ./nginx
     ports:
       - '4000:80'
