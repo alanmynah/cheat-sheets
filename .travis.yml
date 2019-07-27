@@ -10,20 +10,14 @@ script:
   - docker run -e CI=true client-tests npm run test
 
 after_success:
-  - docker build -t cheat-sheets-fullstack-api ./api
-  - docker build -t cheat-sheets-fullstack-client ./client
-  - docker build -t cheat-sheets-fullstack-nginx ./nginx
-  - docker build -t cheat-sheets-fullstack-worker ./worker
-
-  # - docker tag cheat-sheets-fullstack-api $DOCKER_ID/docker-cheat-sheets:cheat-sheets-fullstack-api
-  # - docker tag cheat-sheets-fullstack-client $DOCKER_ID/docker-cheat-sheets:cheat-sheets-fullstack-client
-  # - docker tag cheat-sheets-fullstack-nginx $DOCKER_ID/docker-cheat-sheets:cheat-sheets-fullstack-nginx
-  # - docker tag cheat-sheets-fullstack-worker $DOCKER_ID/docker-cheat-sheets:cheat-sheets-fullstack-worker
-
+  - docker build -t $DOCKER_ID/docker-cheat-sheets/fullstack-api ./api
+  - docker build -t $DOCKER_ID/docker-cheat-sheets/fullstack-client ./client
+  - docker build -t $DOCKER_ID/docker-cheat-sheets/fullstack-nginx ./nginx
+  - docker build -t $DOCKER_ID/docker-cheat-sheets/fullstack-worker ./worker
   # Log in to Docker
   # https://docs.travis-ci.com/user/docker/#pushing-a-docker-image-to-a-registry
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push $DOCKER_ID/cheat-sheets-fullstack-api
-  - docker push $DOCKER_ID/cheat-sheets-fullstack-client
-  - docker push $DOCKER_ID/cheat-sheets-fullstack-nginx
-  - docker push $DOCKER_ID/cheat-sheets-fullstack-worker
+  - docker push $DOCKER_ID/docker-cheat-sheets/fullstack-api
+  - docker push $DOCKER_ID/docker-cheat-sheets/fullstack-client
+  - docker push $DOCKER_ID/docker-cheat-sheets/fullstack-nginx
+  - docker push $DOCKER_ID/docker-cheat-sheets/fullstack-worker
