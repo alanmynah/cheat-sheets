@@ -10,10 +10,10 @@ script:
   - docker run -e CI=true client-tests npm run test
 
 after_success:
-  - docker build -t $DOCKER_ID/docker-cheat-sheets/fullstack-api ./api
-  - docker build -t $DOCKER_ID/docker-cheat-sheets/fullstack-client ./client
-  - docker build -t $DOCKER_ID/docker-cheat-sheets/fullstack-nginx ./nginx
-  - docker build -t $DOCKER_ID/docker-cheat-sheets/fullstack-worker ./worker
+  - docker build -t $DOCKER_ID/docker-cheat-sheets:fullstack-api ./api
+  - docker build -t $DOCKER_ID/docker-cheat-sheets:fullstack-client ./client
+  - docker build -t $DOCKER_ID/docker-cheat-sheets:fullstack-nginx ./nginx
+  - docker build -t $DOCKER_ID/docker-cheat-sheets:fullstack-worker ./worker
   # Log in to Docker
   # https://docs.travis-ci.com/user/docker/#pushing-a-docker-image-to-a-registry
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
