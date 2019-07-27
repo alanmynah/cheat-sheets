@@ -17,7 +17,7 @@ after_success:
   # Log in to Docker
   # https://docs.travis-ci.com/user/docker/#pushing-a-docker-image-to-a-registry
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push $DOCKER_ID/docker-cheat-sheets/fullstack-api
-  - docker push $DOCKER_ID/docker-cheat-sheets/fullstack-client
-  - docker push $DOCKER_ID/docker-cheat-sheets/fullstack-nginx
-  - docker push $DOCKER_ID/docker-cheat-sheets/fullstack-worker
+  - docker push $DOCKER_ID/docker-cheat-sheets:fullstack-api
+  - docker push $DOCKER_ID/docker-cheat-sheets:fullstack-client
+  - docker push $DOCKER_ID/docker-cheat-sheets:fullstack-nginx
+  - docker push $DOCKER_ID/docker-cheat-sheets:fullstack-worker
