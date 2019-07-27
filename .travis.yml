@@ -15,15 +15,15 @@ after_success:
   - docker build -t fullstack-nginx ./nginx
   - docker build -t fullstack-worker ./worker
 
-  - docker tag fullstack-api alanmynah/docker-cheat-sheets:fullstack-api
-  - docker tag fullstack-client alanmynah/docker-cheat-sheets:fullstack-client
-  - docker tag fullstack-nginx alanmynah/docker-cheat-sheets:fullstack-nginx
-  - docker tag fullstack-worker alanmynah/docker-cheat-sheets:fullstack-worker
+  - docker tag fullstack-api $DOCKER_ID/docker-cheat-sheets:fullstack-api
+  - docker tag fullstack-client $DOCKER_ID/docker-cheat-sheets:fullstack-client
+  - docker tag fullstack-nginx $DOCKER_ID/docker-cheat-sheets:fullstack-nginx
+  - docker tag fullstack-worker $DOCKER_ID/docker-cheat-sheets:fullstack-worker
 
   # Log in to Docker
   # https://docs.travis-ci.com/user/docker/#pushing-a-docker-image-to-a-registry
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push alanmynah/docker-cheat-sheets:fullstack-api
-  - docker push alanmynah/docker-cheat-sheets:fullstack-client
-  - docker push alanmynah/docker-cheat-sheets:fullstack-nginx
-  - docker push alanmynah/docker-cheat-sheets:fullstack-worker
+  - docker push $DOCKER_ID/docker-cheat-sheets:fullstack-api
+  - docker push $DOCKER_ID/docker-cheat-sheets:fullstack-client
+  - docker push $DOCKER_ID/docker-cheat-sheets:fullstack-nginx
+  - docker push $DOCKER_ID/docker-cheat-sheets:fullstack-worker
