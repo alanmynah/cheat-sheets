@@ -54,9 +54,11 @@ class ClassFibonacci extends Component {
         <h3>Calculated values:</h3>
         {Object.entries(values).length !== 0 && (
           <ul>
-            {Object.values(values).map(value => (
-              <li key={value}>
-                For index {value}, I've calculated {value}
+            {Object.entries(values).map((
+              [key, value] // use array destructuring. NOT object destructuring
+            ) => (
+              <li key={key}>
+                For index {key}, I've calculated {value}
               </li>
             ))}
           </ul>
