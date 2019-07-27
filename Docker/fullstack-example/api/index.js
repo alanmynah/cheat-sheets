@@ -28,13 +28,13 @@ pgClient
 // Redis setup
 const redisClient = redis.createClient({
   host: envVariables.redisHost,
-  port: envVariables.redisHost,
+  port: envVariables.redisPort,
   retry_strategy: () => 1000
 });
 const redisPublisher = redisClient.duplicate();
 
 app.get('/', (req, res) => {
-  res.send('hi');
+  res.send('API is up');
 });
 
 app.get('/values/all', async (req, res) => {
