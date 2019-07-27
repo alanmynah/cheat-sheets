@@ -1,10 +1,12 @@
-This is an example to show how to work with:
+This is not the ideal approach, but good to get started with.
 
-- Multiple containers:
+An example to show how to work with:
+
+- Individual containers per environment:
   - dev container `dev.Dockerfile` - it is not `.dev` for intellisense reasons.
   - ci container - it's the same as `dev.Dockerfile`, but has CI=true env variable set.
   - prod container `Dockerfile` that uses multistep build to serve the app with nginx
-- TravisCI, [the config is here)(../../.travis.yml)
+- TravisCI, [the config is here](../../dev-prod-container.travis.yml)
 - Elastic beanstalk
 
 Dev docker
