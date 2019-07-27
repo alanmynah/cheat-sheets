@@ -3,8 +3,8 @@ services:
   - docker
 
 before_install:
-  - cd Docker/fullstack-example # go to build dir
-  - docker build -t client-tests -f ./client/dev.Dockerfile . # build test container
+  - cd Docker/fullstack-example/client # go to build dir
+  - docker build -t client-tests -f ./dev.Dockerfile . # build test container
 
 script:
   - docker run -e CI=true client-tests npm run test
