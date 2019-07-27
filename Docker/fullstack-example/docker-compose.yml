@@ -12,14 +12,16 @@ services:
   redis:
     image: 'redis:latest'
   api:
+    depends_on:
+      - nginx
+      - postgres
+      - redis
     build:
       dockerfile: dev.Dockerfile
       context: ./api
     volumes:
       - /app/node_modules # bookmark the folder
       - ./api:/app # map host's server folder to container's app
-    depends_on:
-      - postgres
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -29,6 +31,8 @@ services:
       - PGPASSWORD=postgres_password
       - PGPORT=5432
   client:
+    depends_on:
+      - api
     build:
       dockerfile: dev.Dockerfile
       context: ./client
@@ -36,6 +40,8 @@ services:
       - /app/node_modules # bookmark the folder
       - ./client:/app # map host's server folder to container's app
   worker:
+    depends_on:
+      - redis
     build:
       dockerfile: dev.Dockerfile
       context: ./worker
