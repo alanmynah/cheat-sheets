@@ -14,7 +14,6 @@ class ClassFibonacci extends Component {
 
   async fetchValues() {
     const values = await axios.get('/api/values/current');
-    console.dir(values);
     this.setState({
       values: values.data
     });
@@ -55,9 +54,9 @@ class ClassFibonacci extends Component {
         <h3>Calculated values:</h3>
         {Object.entries(values).length !== 0 && (
           <ul>
-            {Object.entries(values).map(({ key, value }) => (
-              <li key={key}>
-                For index {key}, I've calculated {value}{' '}
+            {Object.values(values).map(value => (
+              <li key={value}>
+                For index {value}, I've calculated {value}
               </li>
             ))}
           </ul>
