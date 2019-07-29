@@ -4,4 +4,4 @@ Personal Cheat Sheets for all things tech
 
 - Docker [cheat-sheets](./Docker/docker-cheat-sheet.md)
 
-There is a travis build, you can safely ignore it.
+There are travis build and AWS json files, you can safely ignore both as they are for practicing deploys.
