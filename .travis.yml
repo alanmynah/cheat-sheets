@@ -25,14 +25,14 @@ after_success:
   - docker build -t nginx ./nginx
   - docker build -t worker ./worker
 
-  - docker tag api $DOCKER_ID/docker-cheat-sheets:api
-  - docker tag client $DOCKER_ID/docker-cheat-sheets:client
-  - docker tag nginx $DOCKER_ID/docker-cheat-sheets:nginx
-  - docker tag worker $DOCKER_ID/docker-cheat-sheets:worker
+  - docker tag api $DOCKER_ID/docker-cheat-sheets:fullstack-api
+  - docker tag client $DOCKER_ID/docker-cheat-sheets:fullstack-client
+  - docker tag nginx $DOCKER_ID/docker-cheat-sheets:fullstack-nginx
+  - docker tag worker $DOCKER_ID/docker-cheat-sheets:fullstack-worker
 
   # Log in to Docker
   # https://docs.travis-ci.com/user/docker/#pushing-a-docker-image-to-a-registry
-  - docker push $DOCKER_ID/docker-cheat-sheets:api
-  - docker push $DOCKER_ID/docker-cheat-sheets:client
-  - docker push $DOCKER_ID/docker-cheat-sheets:nginx
-  - docker push $DOCKER_ID/docker-cheat-sheets:worker
+  - docker push $DOCKER_ID/docker-cheat-sheets:fullstack-api
+  - docker push $DOCKER_ID/docker-cheat-sheets:fullstack-client
+  - docker push $DOCKER_ID/docker-cheat-sheets:fullstack-nginx
+  - docker push $DOCKER_ID/docker-cheat-sheets:fullstack-worker
