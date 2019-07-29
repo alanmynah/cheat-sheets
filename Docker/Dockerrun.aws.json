@@ -1,0 +1,35 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "nginx",
+      "image": "alanmynah/docker-cheat-sheets:fullstack-nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "api"]
+    },
+    {
+      "name": "client",
+      "image": "alanmynah/docker-cheat-sheets:fullstack-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "api",
+      "image": "alanmynah/docker-cheat-sheets:fullstack-api",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "alanmynah/docker-cheat-sheets:fullstack-worker",
+      "hostname": "worker",
+      "essential": false
+    }
+  ]
+}
