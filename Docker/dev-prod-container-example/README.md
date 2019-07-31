@@ -1,3 +1,5 @@
+Note `.travis.yml` was originally located in the root folder. This is why all the paths are from there
+
 This is not the ideal approach, but good to get started with.
 
 An example to show how to work with:

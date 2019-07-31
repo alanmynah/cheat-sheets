@@ -1,3 +1,5 @@
+Note `.travis.yml` was originally located in the root folder. This is why all the paths are from there
+
 This is a fullstack example of a fibonacci calculator as found in [this lecture](https://www.udemy.com/docker-and-kubernetes-the-complete-guide/learn/lecture/11437198#overview)
 
 Summary: it's an over the top fibonacci app. It's doesn't do much more than that.
