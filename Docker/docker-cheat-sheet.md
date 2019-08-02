@@ -219,6 +219,14 @@ services:
     ports:
       - 5001:8081 # docker run -p 5001:8081 <image-id>
     command: ['redis-cli'] # docker exec <container-id> npm run test
+    extra_hosts: # to provide host mappings. For example, you have some other locally hosted process, that your want the container to  be able to connect to.
+      - 'somehost:162.242.195.82'
+      - 'otherhost:50.31.209.229'
+    healthcheck: # Determine if the container is healthy
+      test: ['CMD', 'curl', '-f', 'http://localhost']
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
 ```
 
 `docker-compose` up and down and status
