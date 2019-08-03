@@ -1,0 +1,19 @@
+# specifies which set of objects can be created.
+apiVersion: v1
+# kind specifies a type of object we want to make
+kind: Pod
+metadata:
+  name: client-pod
+  labels:
+    name: client-pod
+    component: web
+spec:
+  containers:
+  - name: client
+    image: alanmynah/docker-cheat-sheets/fullstack-client
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 3000
