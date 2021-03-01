@@ -4,9 +4,9 @@ metadata:
   name: client-node-port
 spec:
   type: NodePort
-  selector:
-    component: web
   ports:
   - port: 3050
     targetPort: 3000
     nodePort: 31515
+  selector:
+    component: web

@@ -5,15 +5,14 @@ kind: Pod
 metadata:
   name: client-pod
   labels:
-    name: client-pod
     component: web
 spec:
   containers:
-  - name: client
-    image: alanmynah/docker-cheat-sheets/fullstack-client
-    resources:
-      limits:
-        memory: "128Mi"
-        cpu: "500m"
-    ports:
-      - containerPort: 3000
+    - name: client
+      image: stephengrider/multi-client # because i've deleted my personal containers: don't want to keep them updated, Stephen's are though
+      ports:
+        - containerPort: 3000
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
