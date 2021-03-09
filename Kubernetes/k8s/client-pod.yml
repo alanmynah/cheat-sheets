@@ -9,7 +9,7 @@ metadata:
 spec:
   containers:
     - name: client
-      image: stephengrider/multi-client # because i've deleted my personal containers: don't want to keep them updated, Stephen's are though
+      image: stephengrider/multi-worker # because i've deleted my personal containers: don't want to keep them updated, Stephen's are though
       ports:
         - containerPort: 3000
       resources:

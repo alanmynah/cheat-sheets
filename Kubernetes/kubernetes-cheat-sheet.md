@@ -8,7 +8,17 @@
 
 ### Pod
 
-Think of a pod as minimal required wrapper around a container or a set of tightly coupled containers.
+Think of a pod as minimal required wrapper around a container or a set of tightly coupled containers. `Pod`s on their own are a bit too basic for prod and are mainly used in dev environments:
+
+- runs a single set of containers
+- good for one-off dev workload
+- not used (maybe, but rarely) in prod
+
+### Deployment
+
+Is the next evolution of a `Pod`. It runs one or more `Pod`s and provides updates and monitoring. `Deployment` is good for both dev and prod.
+
+Deployments have `Pod Tepmplate`s, that specify the configuration that requires to be maintained.
 
 ### Service
 
