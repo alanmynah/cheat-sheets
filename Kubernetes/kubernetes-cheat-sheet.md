@@ -2,6 +2,8 @@
 
 ## `apiVersion`
 
+`apiVersion` usually depends on the `kind` that you're using, [more details](https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-apiversion-definition-guide.html).
+
 ![image](https://user-images.githubusercontent.com/26703675/62350427-9a983200-b4fa-11e9-847b-d5b660329d3d.png)
 
 ## `kind`
@@ -19,6 +21,8 @@ Think of a pod as minimal required wrapper around a container or a set of tightl
 Is the next evolution of a `Pod`. It runs one or more `Pod`s and provides updates and monitoring. `Deployment` is good for both dev and prod.
 
 Deployments have `Pod Tepmplate`s, that specify the configuration that requires to be maintained.
+
+See `template` section [in this yml for example](./k8s/client-deployment.yml)
 
 ### Service
 
