@@ -1,13 +1,16 @@
-#
+# Deployment requires this version
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: client-deployment
 spec:
+  # number of Pods that need to be created that use the template below
   replicas: 1
+  # selector is a way to provide master with labels to manage objects
   selector:
     matchLabels:
         component: web
+  # the configuration that is required to be maintained
   template:
     metadata:
       labels:

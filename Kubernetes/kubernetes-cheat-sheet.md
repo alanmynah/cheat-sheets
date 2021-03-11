@@ -51,3 +51,25 @@ spec:
     some-way-to: link-my-app
     component: web
 ```
+
+## Running those .yml configs
+
+```sh
+kubectl --help # just to check things are installed
+
+# POST
+kubectl apply -f ./k8s/client-pod.yml
+kubectl apply -f ./k8s/client-deployment.yml
+kubectl apply -f ./k8s/client-node-port.yml
+
+# GET
+kubectl get pods
+kubectl get deployments
+kubectl get services
+
+# DELETE
+kubectl delete -f ./k8s/client-pod.yml
+kubectl delete -f ./k8s/client-deployment.yml
+kubectl delete -f ./k8s/client-node-port.yml
+
+```
