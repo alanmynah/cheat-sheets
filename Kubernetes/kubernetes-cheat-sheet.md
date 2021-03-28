@@ -72,4 +72,13 @@ kubectl delete -f ./k8s/client-pod.yml
 kubectl delete -f ./k8s/client-deployment.yml
 kubectl delete -f ./k8s/client-node-port.yml
 
+# Update a property in the deployed configuration
+#  these all correspond the properties inside client-deployment.yml
+kubectl set image deployment/client-deployment client=container-repo/container-image:tag
 ```
+
+## Prod Example
+
+For an example production application, see [multi-container example](./k8s/multi-container-prod-example/README.md)
+
+![image](https://user-images.githubusercontent.com/26703675/112748181-0e316180-8fb2-11eb-93e6-021b553e2471.png)
