@@ -82,3 +82,4 @@ kubectl set image deployment/client-deployment client=container-repo/container-i
 For an example production application, see [multi-container example](./k8s/multi-container-prod-example/README.md)
 
 ![image](https://user-images.githubusercontent.com/26703675/112748181-0e316180-8fb2-11eb-93e6-021b553e2471.png)
+
